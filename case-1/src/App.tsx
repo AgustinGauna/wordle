@@ -17,6 +17,10 @@ function App() {
           setWords(() =>
           Array.from({length: 6}, () => new Array(5).fill("")),)
           setTurn(0)
+          api.word.random().then((palabra)=>{
+            setAnswer(palabra)
+      
+          })
         }
       }
     }
@@ -71,7 +75,7 @@ function App() {
       setAnswer(palabra)
 
     })
-  },[status])
+  },[])
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
