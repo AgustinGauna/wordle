@@ -48,3 +48,16 @@ html, body, #root {
 .correct {
   background-color: #538d4e;
 }
+
+@media(max-width:430px){
+  .letter{
+    width: 54px;
+    height: 54px;
+  }
+}
+@media(max-width:330px){
+  .letter{
+    width: 49px;
+    height: 49px;
+  }
+}
