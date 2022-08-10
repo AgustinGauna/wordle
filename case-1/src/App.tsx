@@ -29,6 +29,7 @@ function App() {
 
           if (words[turn].join("") === answer) {
             setStatus("finished");
+
           }
 
           setTurn((turn) => turn + 1);
@@ -70,16 +71,20 @@ function App() {
       setAnswer(palabra)
 
     })
-  },[])
+  },[status])
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
+  useEffect(()=>{
+    
+  })
 
   return (
     <main className="board">
+      <h1>Wordle clon</h1>
       {words.map((word, wordIndex) => (
         <section key={wordIndex} className="word">
           {word.map((letter, letterIndex) => {
