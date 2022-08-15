@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
-import api from "./api";
+import api, {keyboard} from "./api";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faWindowClose} from '@fortawesome/free-regular-svg-icons'
 
 function App() {
   const [answer, setAnswer] = useState("")
@@ -8,7 +10,6 @@ function App() {
   const [words, setWords] = useState<string[][]>(() =>
     Array.from({length: 6}, () => new Array(5).fill("")),
   );
-
   const handleKeyDown = (event: KeyboardEvent) => {
     if(status === "finished"){
       switch(event.key){
@@ -86,6 +87,13 @@ function App() {
     
   })
 
+  const handleKeyboard = (letter:string) => {
+    window.dispatchEvent(new KeyboardEvent('keydown', {
+      'key': letter
+  }));
+
+  } 
+
   return (
     <main className="board">
       <h1>Wordle clon</h1>
@@ -103,6 +111,17 @@ function App() {
           })}
         </section>
       ))}
+
+          <ul className="keyboard">
+            {keyboard.map((letter,index)=>{
+              return(
+                <li onClick={()=>{handleKeyboard(letter)}} key={index}>{letter}</li>
+              )
+            })}
+            <li onClick={()=>{handleKeyboard("Backspace")}}> <FontAwesomeIcon icon={ faWindowClose }></FontAwesomeIcon> </li>
+          </ul>
+          
+
     </main>
   );
 }
