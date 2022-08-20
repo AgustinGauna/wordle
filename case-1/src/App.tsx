@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import api, {keyboard} from "./api";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faWindowClose} from '@fortawesome/free-regular-svg-icons'
+import Keyboard from "./keyboard/Keyboard";
 
 function App() {
   const [answer, setAnswer] = useState("")
@@ -87,12 +86,7 @@ function App() {
     
   })
 
-  const handleKeyboard = (letter:string) => {
-    window.dispatchEvent(new KeyboardEvent('keydown', {
-      'key': letter
-  }));
-
-  } 
+ 
 
   return (
     <main className="board">
@@ -112,15 +106,7 @@ function App() {
         </section>
       ))}
 
-          <ul className="keyboard">
-            {keyboard.map((letter,index)=>{
-              return(
-                <li onClick={()=>{handleKeyboard(letter)}} key={index}>{letter}</li>
-              )
-            })}
-            <li onClick={()=>{handleKeyboard("Backspace")}}> <FontAwesomeIcon icon={ faWindowClose }></FontAwesomeIcon> </li>
-          </ul>
-          
+        <Keyboard/>
 
     </main>
   );

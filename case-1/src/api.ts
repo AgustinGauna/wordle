@@ -1,4 +1,4 @@
-const WORDS = ["WRONG", "RIGHT", "WORLD", "WORMS", "GONCY", "BELEN"];
+const WORDS = ["WRONG", "RIGHT", "WORLD", "WORMS", "READS", "KILLS", "SUNNY", "WINDY", "ACTOR", "ABOVE", "ABOUT", "AFTER", "ABUSE", "ADMIT", "ADOPT", "ADULT", "AGREE", "AGENT", "AHEAD", "DREAM", "DOUBT", "DRAMA", "LEAVE", "SHEET", "SLEEP", "VIRUS", "VISIT"];
 
 const api = {
   word: {
